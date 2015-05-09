@@ -1,6 +1,7 @@
 data:
     image: stefanorg/data
     volumes:
+        - /etc/services-config/magento2.app-1.1.1/httpd:/etc/services-config/httpd
         - /var/services-data/data-container/var/lib/mysql:/var/lib/mysql
 
 mysql:

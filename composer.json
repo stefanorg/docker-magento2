@@ -8,9 +8,9 @@
         "AFL-3.0"
     ],
     "require": {
+	"php": ">=5.5",
         "magento/product-community-edition": "0.74.0-beta7",
 	"magento/sample-data": "0.74.0-beta7"
-
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",

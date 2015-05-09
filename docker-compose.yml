@@ -1,0 +1,32 @@
+data:
+    image: stefanorg/data
+    volumes:
+        - /var/services-data/data-container/var/lib/mysql:/var/lib/mysql
+
+mysql:
+  image: mysql:latest
+  expose:
+    - "3306"
+  ports:
+    - "3307:3306"
+  volumes_from:
+    - data
+  environment:
+    MYSQL_DATABASE: magento2 
+    MYSQL_USER: magento2
+    MYSQL_PASSWORD: magento2pwd
+    MYSQL_ROOT_PASSWORD: 123
+web:
+    build: .
+    ports:
+        - "80:80"
+    links:
+        - mysql:mysql
+    volumes:
+#        - /etc/localtime:/etc/localtime:ro
+        - .:/var/www/app
+    environment:
+        BASE_URL: http://magento2.dev.local
+        APACHE_SERVER_NAME: namaste.dev.local
+        APACHE_SERVER_ALIAS: namaste.dev.local
+        DATE_TIMEZONE: Europe/Rome

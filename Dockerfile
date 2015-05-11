@@ -6,5 +6,3 @@ RUN yum install -y php56w-mysql \
 		   php56w-intl 
 
 COPY php.ini.sample /etc/php.ini
-
-RUN service httpd restart

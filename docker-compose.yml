@@ -28,6 +28,6 @@ web:
         - .:/var/www/app
     environment:
         BASE_URL: http://magento2.dev.local
-        APACHE_SERVER_NAME: namaste.dev.local
-        APACHE_SERVER_ALIAS: namaste.dev.local
+        APACHE_SERVER_NAME: magento2.dev.local
+        APACHE_SERVER_ALIAS: magento2.dev.local
         DATE_TIMEZONE: Europe/Rome

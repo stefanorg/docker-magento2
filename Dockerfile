@@ -1,8 +1,5 @@
 FROM stefanorg/lamp-zf2
 
-ENV http_proxy http://proxy.regione.piemonte.it:80
-ENV https_proxy http://proxy.regione.piemonte.it:80
-
 #Installing deps
 RUN yum install -y php56w-gd php56w-mcrypt php56w-mbstring
 

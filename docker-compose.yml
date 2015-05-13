@@ -1,8 +1,13 @@
 data:
     image: stefanorg/data
     volumes:
-        - /etc/services-config/magento2.app-1.1.1/httpd:/etc/services-config/httpd
+        - config/httpd:/etc/services-config/httpd
         - /var/services-data/data-container/var/lib/mysql:/var/lib/mysql
+
+workspace:
+    image: stefanorg/data
+    volumes:
+        - magento2:/var/www/app
 
 mysql:
   image: mysql:latest
@@ -13,7 +18,7 @@ mysql:
   volumes_from:
     - data
   environment:
-    MYSQL_DATABASE: magento2 
+    MYSQL_DATABASE: magento2
     MYSQL_USER: magento2
     MYSQL_PASSWORD: magento2pwd
     MYSQL_ROOT_PASSWORD: 123
@@ -23,9 +28,8 @@ web:
         - "80:80"
     links:
         - mysql:mysql
-    volumes:
-#        - /etc/localtime:/etc/localtime:ro
-        - .:/var/www/app
+    volumes_from:
+        - workspace
     environment:
         BASE_URL: http://magento2.dev.local
         APACHE_SERVER_NAME: magento2.dev.local

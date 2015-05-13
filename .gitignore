@@ -1,7 +1,1 @@
-*
-!.gitignore
-!README.md
-!docker-compose.yml
-!Dockerfile
-!composer.json
-!composer.phar
+.idea
